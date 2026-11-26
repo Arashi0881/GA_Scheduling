@@ -68,7 +68,9 @@ class Instance:
         course_shifts = defaultdict(set)
         keys = set()
         for row in read_csv(directory / "sections.csv"):
-            professor = row["professor"]
+            professor = row.get("professor")
+            if not professor:
+                raise ValueError("Sections need a professor. Run python -m src.assign first.")
             shift = ("AM", "PM").index(row["period"])
             s = Section(row["course"], row["section"], int(row["registration_size"]), shift)
             key = (s.course, s.name)
@@ -140,7 +142,16 @@ def new_gene(instance, p, rng):
     groups = instance.groups[p]
     degrees = [[0] * 5 for _ in range(2)]
     if instance.calendar_penalty is None:
-        degrees = [rng.choice(shift_degrees(len(indices))) for indices in groups]
+        options = [shift_degrees(len(indices)) for indices in groups]
+        proposals = [[rng.choice(values) for values in options] for _ in range(4)]
+
+        def day_penalty(candidate):
+            morning, afternoon = candidate
+            days = [day for day, (am, pm) in enumerate(zip(morning, afternoon)) if am or pm]
+            mixed = sum(bool(am and pm) for am, pm in zip(morning, afternoon))
+            return days[-1] - days[0] + 1 + 2 * mixed
+
+        degrees = min(proposals, key=day_penalty)
     elif len(instance.sections[p]) == 7:
         shift = 0 if groups[0] else 1
         degrees[shift] = [3] * 5
@@ -160,7 +171,10 @@ def new_gene(instance, p, rng):
         slots = []
         for day, count in enumerate(degrees[shift]):
             start = 6 * day + 3 * shift
-            if count == 2:
+            if instance.calendar_penalty is None and count and degrees[1 - shift][day]:
+                if shift == 0:
+                    start += 3 - count
+            elif count == 2:
                 start += rng.randrange(2)
             free = list(range(start, start + count))
             rng.shuffle(free)
@@ -477,7 +491,7 @@ def solve(input_dir, output_dir, seed=42, generations=None, *, variant="hybrid",
         raise RuntimeError("Decoded schedule does not match solver cost")
     metadata = dict(dataset_id=dataset_id or input_dir.resolve().name, input_sha256=hashes,
                     variant=variant, seed=seed, python_version=platform.python_version(),
-                    solver_version="2" if instance.calendar_penalty is not None else "3",
+                    solver_version="2" if instance.calendar_penalty is not None else "4",
                     max_evaluations=max_evaluations, generations=generations,
                     evaluations_used=progress.used, first_feasible_evaluation=progress.first_feasible,
                     stop_reason=progress.reason, H=missing, G=gaps, W=span, M=mixed, C=0, R=slack,

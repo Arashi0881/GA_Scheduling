@@ -1,0 +1,8 @@
+/*
+!/.gitignore
+!/src/
+!/input/
+!/README.md
+!/requirement.md
+__pycache__/
+*.py[cod]

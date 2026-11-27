@@ -77,10 +77,44 @@ Trong các dữ liệu được hỗ trợ, mỗi môn có một ca và mỗi gi
 
 Cận dưới 360 xuất phát từ tải dạy. Với một giảng viên dạy *n* buổi trong *d* ngày, có *m* ngày dạy cả hai ca, ta có *n* ≤ 3(*d* + *m*). Do *d* ≤ 5 và *n* chẵn, suy ra *n* ≤ 2*d* + 4*m* + 4. Cộng qua 60 giảng viên cho 960 ≤ 2*D* + 4*M* + 240. Vì tổng độ trải tuần *W* ít nhất bằng tổng số ngày dạy *D*, ta có *P* ≥ *W* + 2*M* ≥ 360.
 
+## Kiểm tra, biểu đồ và đối sánh
+
+```sh
+python -m src.verify results                 # kiểm tra độc lập một lịch
+python -m src.plot run results               # results/fitness.png
+python -m src.bench --seeds 30 --jobs 6 --out results/bench
+python -m src.plot bench results/bench       # convergence.png, runtime.png, final.png
+```
+
+`src.verify` chỉ đọc các tệp CSV, không dùng cấu trúc dữ liệu của bộ giải. Nó đếm vi phạm của từng ràng buộc cứng trong đề, tính lại `G, W, M, C, R, U, P`, rồi so với `run.json`. Lệnh trả mã 1 nếu có vi phạm hoặc điểm không khớp.
+
+`src.bench` so sáu phương pháp trên cùng các seed 1..N và cùng **ngân sách lượt chấm fitness**. Lượt thử của tìm kiếm cục bộ cũng được tính là lượt chấm. Cách tính này công bằng hơn so theo số thế hệ, vì mỗi thế hệ của `hybrid` tốn khoảng 11.000 lượt chấm, còn của `plain` chỉ 26 lượt.
+
+| Phương pháp | Vai trò |
+|---|---|
+| `plain`, `hybrid`, `flexible` | Ba chế độ GA của bộ giải. |
+| `random` | Phương pháp nền: lấy lịch tốt nhất trong các lịch ngẫu nhiên sinh độc lập. Đo xem tiến hóa có giúp gì so với đoán ngẫu nhiên không. |
+| `hillclimb` | Phương pháp nền: một lịch duy nhất, cải thiện bằng phép đột biến của `hybrid`, chỉ nhận thay đổi không làm điểm tệ hơn. Tức là `hybrid` bỏ quần thể và lai ghép. |
+| `hillclimb-flex` | Tương tự `hillclimb`, nhưng dùng phép dời buổi của `flexible`. |
+
+Lịch tốt nhất của mỗi lượt chạy được giải mã và kiểm tra bằng `src.verify`. Các tệp kết quả:
+
+| Tệp | Nội dung |
+|---|---|
+| `runs.csv` | Một dòng cho mỗi phương pháp và seed: `H`, `P`, khoảng cách tới cận 360, lượt chấm đến khi khả thi (`evals_to_feasible`) và đến khi đạt cận (`evals_to_bound`), thời gian, số vi phạm do bộ kiểm tra đếm. |
+| `convergence.csv` | Chi phí tốt nhất `10.000·H + P` tại khoảng 10 mốc trên mỗi bậc lũy thừa 10 của số lượt chấm. |
+| `summary.csv` | Theo phương pháp: tỉ lệ khả thi và tỉ lệ đạt cận kèm khoảng Wilson 95%, trung vị và tứ phân vị của `P`, lượt chấm và thời gian. |
+| `tests.csv` | So từng phương pháp với `hybrid`. Tỉ lệ dùng kiểm định chính xác Fisher. Chi phí, lượt chấm và thời gian dùng Mann–Whitney U, kèm `prob_better`, xác suất một lượt chạy của phương pháp đó tốt hơn một lượt của `hybrid` (0,5 là ngang nhau). |
+| `manifest.json` | Tham số, commit git, phiên bản Python, máy chạy, mã băm dữ liệu vào. |
+
+Lượt chạy chưa đạt mục tiêu ghi trống trong `runs.csv`, và được tính là `inf` (xếp sau mọi lượt đã đạt) khi lấy trung vị hay kiểm định. Thời gian chạy đo khi nhiều tiến trình chạy song song, nên chỉ dùng để so tương đối.
+
 ## Mã nguồn và công cụ cục bộ
 
 - [src/assign.py](src/assign.py) phân công lớp theo top 3 và mẫu tải gốc.
 - [src/schedule_ga.py](src/schedule_ga.py) xếp ngày, tiết và phòng rồi xuất kết quả.
-- [src/run.py](src/run.py) gọi thêm các công cụ kiểm tra, vẽ biểu đồ và xuất Excel. Lệnh `python -m src.run` cần có `tools/`, `matplotlib` và `openpyxl` tại máy chạy.
+- [src/verify.py](src/verify.py), [src/plot.py](src/plot.py), [src/bench.py](src/bench.py), [src/stats.py](src/stats.py): kiểm tra, vẽ biểu đồ, đối sánh, thống kê. Chỉ `src.plot` cần `matplotlib`.
+- [src/run.py](src/run.py) chạy bộ giải, kiểm tra và vẽ biểu đồ trong một lệnh. Nếu có `tools/export_excel.py` cục bộ thì xuất thêm Excel (cần `openpyxl`).
+- Test: `python -m pytest tests`.
 
-Repo lưu mã nguồn, dữ liệu mẫu và tài liệu. Theo [.gitignore](.gitignore), `tools/`, `requirements.txt` và các thư mục kết quả chỉ có trong bản làm việc cục bộ.
+Repo lưu mã nguồn, test, dữ liệu mẫu và tài liệu. Theo [.gitignore](.gitignore), `tools/`, `requirements.txt` và các thư mục kết quả chỉ có trong bản làm việc cục bộ.

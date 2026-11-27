@@ -5,5 +5,10 @@
 !/input/
 !/README.md
 !/requirement.md
+# Only the benchmark used in the report is tracked; other solver runs stay local.
+!/results/
+/results/*
+!/results/bench/
+/results/bench/input/
 __pycache__/
 *.py[cod]

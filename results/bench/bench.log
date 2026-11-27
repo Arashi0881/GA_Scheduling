@@ -1,0 +1,192 @@
+Assigned 480 sections in 15 blocks. Preference penalty: 334.
+[  1/180]          plain seed  1: H=0 P=360 evals=24369 7.8s
+[  2/180]         hybrid seed  1: H=0 P=360 evals=164543 11.3s
+[  3/180]       flexible seed  1: H=0 P=380 evals=300000 31.4s
+[  4/180]         random seed  1: H=13 P=393 evals=300000 830.1s
+[  5/180]      hillclimb seed  1: H=0 P=360 evals=8684 0.5s
+[  6/180] hillclimb-flex seed  1: H=0 P=362 evals=300000 27.4s
+[  7/180]          plain seed  2: H=0 P=360 evals=16610 4.4s
+[  8/180]         hybrid seed  2: H=0 P=361 evals=300000 19.6s
+[  9/180]       flexible seed  2: H=0 P=367 evals=300000 30.8s
+[ 10/180]         random seed  2: H=15 P=387 evals=300000 832.8s
+[ 11/180]      hillclimb seed  2: H=0 P=360 evals=4117 0.2s
+[ 12/180] hillclimb-flex seed  2: H=0 P=363 evals=300000 28.1s
+[ 13/180]          plain seed  3: H=0 P=360 evals=21338 6.8s
+[ 14/180]         hybrid seed  3: H=0 P=360 evals=55153 4.0s
+[ 15/180]       flexible seed  3: H=0 P=371 evals=300000 32.2s
+[ 16/180]         random seed  3: H=15 P=403 evals=300000 841.3s
+[ 17/180]      hillclimb seed  3: H=0 P=360 evals=12214 0.9s
+[ 18/180] hillclimb-flex seed  3: H=0 P=363 evals=300000 28.0s
+[ 19/180]          plain seed  4: H=0 P=360 evals=25244 8.1s
+[ 20/180]         hybrid seed  4: H=0 P=360 evals=94034 6.2s
+[ 21/180]       flexible seed  4: H=0 P=378 evals=300000 33.4s
+[ 22/180]         random seed  4: H=12 P=385 evals=300000 833.3s
+[ 23/180]      hillclimb seed  4: H=0 P=360 evals=17556 1.2s
+[ 24/180] hillclimb-flex seed  4: H=0 P=364 evals=300000 30.5s
+[ 25/180]          plain seed  5: H=0 P=361 evals=300000 92.4s
+[ 26/180]         hybrid seed  5: H=0 P=360 evals=111852 8.3s
+[ 27/180]       flexible seed  5: H=0 P=379 evals=300000 32.0s
+[ 28/180]         random seed  5: H=15 P=386 evals=300000 834.3s
+[ 29/180]      hillclimb seed  5: H=0 P=360 evals=1139 0.1s
+[ 30/180] hillclimb-flex seed  5: H=0 P=364 evals=300000 30.0s
+[ 31/180]          plain seed  6: H=0 P=360 evals=18700 6.2s
+[ 32/180]         hybrid seed  6: H=0 P=360 evals=265821 19.1s
+[ 33/180]       flexible seed  6: H=0 P=382 evals=300000 35.3s
+[ 34/180]         random seed  6: H=14 P=390 evals=300000 836.5s
+[ 35/180]      hillclimb seed  6: H=0 P=360 evals=10359 0.8s
+[ 36/180] hillclimb-flex seed  6: H=0 P=363 evals=300000 31.8s
+[ 37/180]          plain seed  7: H=0 P=361 evals=300000 102.3s
+[ 38/180]         hybrid seed  7: H=0 P=360 evals=52468 4.0s
+[ 39/180]       flexible seed  7: H=0 P=375 evals=300000 35.9s
+[ 40/180]         random seed  7: H=15 P=386 evals=300000 816.8s
+[ 41/180]      hillclimb seed  7: H=0 P=360 evals=7784 0.6s
+[ 42/180] hillclimb-flex seed  7: H=0 P=364 evals=300000 29.5s
+[ 43/180]          plain seed  8: H=0 P=360 evals=9619 3.4s
+[ 44/180]         hybrid seed  8: H=0 P=360 evals=146406 10.7s
+[ 45/180]       flexible seed  8: H=0 P=377 evals=300000 33.3s
+[ 46/180]         random seed  8: H=13 P=396 evals=300000 794.1s
+[ 47/180]      hillclimb seed  8: H=0 P=360 evals=49241 3.1s
+[ 48/180] hillclimb-flex seed  8: H=0 P=365 evals=300000 30.5s
+[ 49/180]          plain seed  9: H=0 P=360 evals=43849 15.0s
+[ 50/180]         hybrid seed  9: H=0 P=360 evals=144520 11.1s
+[ 51/180]       flexible seed  9: H=0 P=371 evals=300000 33.1s
+[ 52/180]         random seed  9: H=15 P=383 evals=300000 789.3s
+[ 53/180]      hillclimb seed  9: H=0 P=360 evals=13222 1.0s
+[ 54/180] hillclimb-flex seed  9: H=0 P=361 evals=300000 30.8s
+[ 55/180]          plain seed 10: H=0 P=360 evals=21468 7.6s
+[ 56/180]         hybrid seed 10: H=0 P=360 evals=113743 7.7s
+[ 57/180]       flexible seed 10: H=0 P=376 evals=300000 34.3s
+[ 58/180]         random seed 10: H=12 P=389 evals=300000 802.2s
+[ 59/180]      hillclimb seed 10: H=0 P=360 evals=13725 1.1s
+[ 60/180] hillclimb-flex seed 10: H=0 P=365 evals=300000 33.0s
+[ 61/180]          plain seed 11: H=0 P=360 evals=12479 4.5s
+[ 62/180]         hybrid seed 11: H=0 P=360 evals=47533 3.5s
+[ 63/180]       flexible seed 11: H=0 P=384 evals=300000 34.1s
+[ 64/180]         random seed 11: H=15 P=389 evals=300000 781.1s
+[ 65/180]      hillclimb seed 11: H=0 P=360 evals=15110 1.1s
+[ 66/180] hillclimb-flex seed 11: H=0 P=361 evals=300000 33.0s
+[ 67/180]          plain seed 12: H=0 P=360 evals=34306 12.1s
+[ 68/180]         hybrid seed 12: H=0 P=360 evals=149757 12.5s
+[ 69/180]       flexible seed 12: H=0 P=384 evals=300000 33.7s
+[ 70/180]         random seed 12: H=15 P=387 evals=300000 767.7s
+[ 71/180]      hillclimb seed 12: H=0 P=360 evals=8347 0.6s
+[ 72/180] hillclimb-flex seed 12: H=0 P=361 evals=300000 30.3s
+[ 73/180]          plain seed 13: H=1 P=360 evals=300000 101.4s
+[ 74/180]         hybrid seed 13: H=0 P=360 evals=105638 4.4s
+[ 75/180]       flexible seed 13: H=0 P=378 evals=300000 21.0s
+[ 76/180]         random seed 13: H=15 P=374 evals=300000 820.7s
+[ 77/180]      hillclimb seed 13: H=0 P=360 evals=4501 0.3s
+[ 78/180] hillclimb-flex seed 13: H=0 P=361 evals=300000 32.4s
+[ 79/180]          plain seed 14: H=1 P=360 evals=300000 93.4s
+[ 80/180]         hybrid seed 14: H=0 P=360 evals=103289 7.9s
+[ 81/180]       flexible seed 14: H=0 P=379 evals=300000 32.0s
+[ 82/180]         random seed 14: H=15 P=382 evals=300000 826.7s
+[ 83/180]      hillclimb seed 14: H=0 P=360 evals=8616 0.6s
+[ 84/180] hillclimb-flex seed 14: H=0 P=362 evals=300000 25.5s
+[ 85/180]          plain seed 15: H=0 P=360 evals=42226 14.4s
+[ 86/180]         hybrid seed 15: H=0 P=360 evals=68038 5.2s
+[ 87/180]       flexible seed 15: H=0 P=375 evals=300000 36.1s
+[ 88/180]         random seed 15: H=12 P=396 evals=300000 782.7s
+[ 89/180]      hillclimb seed 15: H=0 P=360 evals=21023 1.1s
+[ 90/180] hillclimb-flex seed 15: H=0 P=363 evals=300000 26.9s
+[ 91/180]          plain seed 16: H=0 P=360 evals=112071 39.0s
+[ 92/180]         hybrid seed 16: H=0 P=360 evals=131861 8.3s
+[ 93/180]       flexible seed 16: H=0 P=374 evals=300000 35.2s
+[ 94/180]         random seed 16: H=15 P=387 evals=300000 828.1s
+[ 95/180]      hillclimb seed 16: H=0 P=360 evals=13652 0.8s
+[ 96/180] hillclimb-flex seed 16: H=0 P=361 evals=300000 32.7s
+[ 97/180]          plain seed 17: H=0 P=361 evals=300000 108.9s
+[ 98/180]         hybrid seed 17: H=0 P=360 evals=60148 5.0s
+[ 99/180]       flexible seed 17: H=0 P=373 evals=300000 35.5s
+[100/180]         random seed 17: H=15 P=393 evals=300000 817.0s
+[101/180]      hillclimb seed 17: H=0 P=360 evals=7147 0.5s
+[102/180] hillclimb-flex seed 17: H=0 P=362 evals=300000 28.8s
+[103/180]          plain seed 18: H=0 P=360 evals=16494 5.3s
+[104/180]         hybrid seed 18: H=0 P=360 evals=255452 17.6s
+[105/180]       flexible seed 18: H=0 P=378 evals=300000 33.5s
+[106/180]         random seed 18: H=13 P=382 evals=300000 848.0s
+[107/180]      hillclimb seed 18: H=0 P=360 evals=6518 0.4s
+[108/180] hillclimb-flex seed 18: H=0 P=362 evals=300000 31.6s
+[109/180]          plain seed 19: H=0 P=360 evals=239100 87.4s
+[110/180]         hybrid seed 19: H=0 P=360 evals=76550 5.5s
+[111/180]       flexible seed 19: H=0 P=371 evals=300000 33.9s
+[112/180]         random seed 19: H=14 P=394 evals=300000 849.2s
+[113/180]      hillclimb seed 19: H=0 P=360 evals=6190 0.5s
+[114/180] hillclimb-flex seed 19: H=0 P=363 evals=300000 30.5s
+[115/180]          plain seed 20: H=1 P=360 evals=300000 106.8s
+[116/180]         hybrid seed 20: H=0 P=360 evals=146098 11.7s
+[117/180]       flexible seed 20: H=0 P=371 evals=300000 34.8s
+[118/180]         random seed 20: H=11 P=381 evals=300000 845.0s
+[119/180]      hillclimb seed 20: H=0 P=360 evals=5014 0.4s
+[120/180] hillclimb-flex seed 20: H=0 P=362 evals=300000 30.4s
+[121/180]          plain seed 21: H=0 P=360 evals=128117 48.0s
+[122/180]         hybrid seed 21: H=0 P=360 evals=155786 11.6s
+[123/180]       flexible seed 21: H=0 P=376 evals=300000 34.8s
+[124/180]         random seed 21: H=14 P=381 evals=300000 828.9s
+[125/180]      hillclimb seed 21: H=0 P=360 evals=1939 0.1s
+[126/180] hillclimb-flex seed 21: H=0 P=363 evals=300000 28.5s
+[127/180]          plain seed 22: H=1 P=360 evals=300000 101.2s
+[128/180]         hybrid seed 22: H=0 P=360 evals=158667 12.9s
+[129/180]       flexible seed 22: H=0 P=382 evals=300000 32.6s
+[130/180]         random seed 22: H=13 P=395 evals=300000 843.4s
+[131/180]      hillclimb seed 22: H=0 P=360 evals=15457 0.9s
+[132/180] hillclimb-flex seed 22: H=0 P=363 evals=300000 27.1s
+[133/180]          plain seed 23: H=0 P=360 evals=16311 4.8s
+[134/180]         hybrid seed 23: H=0 P=360 evals=98075 6.0s
+[135/180]       flexible seed 23: H=0 P=366 evals=300000 29.5s
+[136/180]         random seed 23: H=13 P=383 evals=300000 848.8s
+[137/180]      hillclimb seed 23: H=0 P=360 evals=2727 0.2s
+[138/180] hillclimb-flex seed 23: H=0 P=365 evals=300000 32.3s
+[139/180]          plain seed 24: H=0 P=360 evals=11320 4.3s
+[140/180]         hybrid seed 24: H=0 P=360 evals=109626 7.1s
+[141/180]       flexible seed 24: H=0 P=375 evals=300000 33.6s
+[142/180]         random seed 24: H=15 P=388 evals=300000 814.1s
+[143/180]      hillclimb seed 24: H=0 P=360 evals=4852 0.3s
+[144/180] hillclimb-flex seed 24: H=0 P=365 evals=300000 31.1s
+[145/180]          plain seed 25: H=0 P=360 evals=95203 34.6s
+[146/180]         hybrid seed 25: H=0 P=360 evals=93424 7.0s
+[147/180]       flexible seed 25: H=0 P=385 evals=300000 37.4s
+[148/180]         random seed 25: H=17 P=386 evals=300000 862.2s
+[149/180]      hillclimb seed 25: H=0 P=360 evals=27370 1.6s
+[150/180] hillclimb-flex seed 25: H=0 P=361 evals=300000 28.5s
+[151/180]          plain seed 26: H=0 P=360 evals=99100 35.3s
+[152/180]         hybrid seed 26: H=0 P=360 evals=190795 15.4s
+[153/180]       flexible seed 26: H=0 P=377 evals=300000 35.1s
+[154/180]         random seed 26: H=14 P=390 evals=300000 840.8s
+[155/180]      hillclimb seed 26: H=0 P=360 evals=5095 0.4s
+[156/180] hillclimb-flex seed 26: H=0 P=365 evals=300000 29.8s
+[157/180]          plain seed 27: H=0 P=360 evals=18129 5.5s
+[158/180]         hybrid seed 27: H=0 P=360 evals=133909 9.8s
+[159/180]       flexible seed 27: H=0 P=372 evals=300000 33.7s
+[160/180]         random seed 27: H=14 P=391 evals=300000 822.7s
+[161/180]      hillclimb seed 27: H=0 P=360 evals=16864 1.0s
+[162/180] hillclimb-flex seed 27: H=0 P=371 evals=300000 32.8s
+[163/180]          plain seed 28: H=0 P=360 evals=13792 4.5s
+[164/180]         hybrid seed 28: H=0 P=360 evals=82514 6.7s
+[165/180]       flexible seed 28: H=0 P=381 evals=300000 33.8s
+[166/180]         random seed 28: H=15 P=396 evals=300000 772.2s
+[167/180]      hillclimb seed 28: H=0 P=360 evals=8262 0.6s
+[168/180] hillclimb-flex seed 28: H=0 P=367 evals=300000 33.0s
+[169/180]          plain seed 29: H=0 P=360 evals=22026 6.7s
+[170/180]         hybrid seed 29: H=0 P=360 evals=69318 5.2s
+[171/180]       flexible seed 29: H=0 P=376 evals=300000 36.8s
+[172/180]         random seed 29: H=16 P=380 evals=300000 742.8s
+[173/180]      hillclimb seed 29: H=0 P=360 evals=7914 0.6s
+[174/180] hillclimb-flex seed 29: H=0 P=366 evals=300000 31.2s
+[175/180]          plain seed 30: H=0 P=360 evals=32939 12.6s
+[176/180]         hybrid seed 30: H=0 P=360 evals=101835 7.8s
+[177/180]       flexible seed 30: H=0 P=377 evals=300000 37.0s
+[178/180]         random seed 30: H=14 P=389 evals=300000 665.8s
+[179/180]      hillclimb seed 30: H=0 P=360 evals=18964 1.5s
+[180/180] hillclimb-flex seed 30: H=0 P=361 evals=300000 31.0s
+
+         method   feasible   P = 360  median P  evals to feasible  evals to 360  median s
+          plain   26/30      23/30       360.0             10,429        33,622      12.3
+         hybrid   30/30      29/30       360.0             21,813       110,739       7.8
+       flexible   30/30       0/30       376.5                204         never      33.8
+         random    0/30       0/30       387.5              never         never     827.4
+      hillclimb   30/30      30/30       360.0              5,660         8,482       0.6
+ hillclimb-flex   30/30       0/30       363.0                192         never      30.5
+
+Files: /home/cynmeiciel/workspace/Python/GA_Scheduling/results/bench-rerun
+exit 0

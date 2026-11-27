@@ -1,6 +1,7 @@
 /*
 !/.gitignore
 !/src/
+!/tests/
 !/input/
 !/README.md
 !/requirement.md

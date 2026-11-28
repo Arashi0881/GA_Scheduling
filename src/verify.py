@@ -25,6 +25,9 @@ HARD = {
     "section_clash": "5. section in two rooms at once",
     "room_clash": "6. room holds two sessions at once",
     "section_sessions": "data: section without exactly two sessions",
+    "session_index": "data: section session indices must be 1 and 2",
+    "invalid_time": "data: day must be Mon-Fri and slot must be 1-6",
+    "wrong_period": "data: period or slot differs from the assigned shift",
     "wrong_professor": "data: professor differs from the assignment",
     "not_favorite": "bonus 2: professor teaches a course outside their top 3",
 }
@@ -64,18 +67,33 @@ def verify(rows, sections, rooms, professors):
     favorites = {p["professor"]: {p[f"favorite_{i}"] for i in (1, 2, 3)} for p in professors}
 
     by_section = defaultdict(list)
+    session_indices = defaultdict(list)
     professor_time, room_time, section_time = Counter(), Counter(), Counter()
     professor_days = defaultdict(lambda: defaultdict(list))
     course_shifts = defaultdict(Counter)
     for row in rows:
         key = (row["course"], row["section"])
-        day, slot, professor, room = DAYS.index(row["day"]), int(row["slot"]), row["professor"], row["room"]
+        professor, room = row["professor"], row["room"]
+        day = DAYS.index(row["day"]) if row["day"] in DAYS else -1
+        try:
+            slot = int(row["slot"])
+        except (TypeError, ValueError):
+            slot = 0
+        session_indices[key].append(row.get("session"))
+        valid_time = day >= 0 and 1 <= slot <= 6
+        if not valid_time:
+            hard["invalid_time"] += 1
+        else:
+            period = "AM" if slot <= 3 else "PM"
+            if row.get("period") != period or (key in assigned and assigned[key]["period"] != period):
+                hard["wrong_period"] += 1
         size = int(assigned[key]["registration_size"]) if key in assigned else int(row["registration_size"])
         by_section[key].append(day)
-        professor_time[professor, day, slot] += 1
-        section_time[key, day, slot] += 1
-        professor_days[professor][day].append(slot)
-        course_shifts[row["course"]][slot >= 4] += 1
+        if valid_time:
+            professor_time[professor, day, slot] += 1
+            section_time[key, day, slot] += 1
+            professor_days[professor][day].append(slot)
+            course_shifts[row["course"]][slot >= 4] += 1
         if key not in assigned or assigned[key]["professor"] != professor:
             hard["wrong_professor"] += 1
         if row["course"] not in favorites.get(professor, ()):
@@ -83,7 +101,8 @@ def verify(rows, sections, rooms, professors):
         if room == "UNASSIGNED":
             hard["room_unassigned"] += 1
             continue
-        room_time[room, day, slot] += 1
+        if valid_time:
+            room_time[room, day, slot] += 1
         if room_size[room] < size:
             hard["room_too_small"] += 1
         else:
@@ -93,6 +112,8 @@ def verify(rows, sections, rooms, professors):
 
     hard["section_sessions"] = sum(len(by_section.get(key, ())) != 2 for key in assigned)
     hard["section_sessions"] += sum(key not in assigned for key in by_section)
+    hard["session_index"] = sum(
+        Counter(indices) != Counter(("1", "2")) for indices in session_indices.values())
     hard["section_days"] = sum(len(days) == 2 and abs(days[0] - days[1]) < 2 for days in by_section.values())
     for counter, name in ((professor_time, "professor_clash"), (room_time, "room_clash"),
                           (section_time, "section_clash")):

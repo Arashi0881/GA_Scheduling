@@ -107,6 +107,8 @@ Lịch tốt nhất của mỗi lượt chạy được giải mã và kiểm tr
 | `tests.csv` | So từng phương pháp với `hybrid`. Tỉ lệ dùng kiểm định chính xác Fisher. Chi phí, lượt chấm và thời gian dùng Mann–Whitney U, kèm `prob_better`, xác suất một lượt chạy của phương pháp đó tốt hơn một lượt của `hybrid` (0,5 là ngang nhau). |
 | `manifest.json` | Tham số, commit git, phiên bản Python, máy chạy, mã băm dữ liệu vào. |
 
+Kết quả dùng cho báo cáo nằm trong [results/bench/](results/bench/): 30 seed, ngân sách 300.000 lượt chấm, commit và môi trường chạy ghi trong `manifest.json`, nhật ký trong `bench.log`. Chạy lại cùng lệnh cho đúng cùng `H`, `P` và số lượt chấm, chỉ thời gian thay đổi.
+
 Lượt chạy chưa đạt mục tiêu ghi trống trong `runs.csv`, và được tính là `inf` (xếp sau mọi lượt đã đạt) khi lấy trung vị hay kiểm định. Thời gian chạy đo khi nhiều tiến trình chạy song song, nên chỉ dùng để so tương đối.
 
 ## Mã nguồn và công cụ cục bộ
@@ -117,4 +119,4 @@ Lượt chạy chưa đạt mục tiêu ghi trống trong `runs.csv`, và đư�
 - [src/run.py](src/run.py) chạy bộ giải, kiểm tra và vẽ biểu đồ trong một lệnh. Nếu có `tools/export_excel.py` cục bộ thì xuất thêm Excel (cần `openpyxl`).
 - Test: `python -m pytest tests`.
 
-Repo lưu mã nguồn, test, dữ liệu mẫu và tài liệu. Theo [.gitignore](.gitignore), `tools/`, `requirements.txt` và các thư mục kết quả chỉ có trong bản làm việc cục bộ.
+Repo lưu mã nguồn, test, dữ liệu mẫu, tài liệu và kết quả đối sánh dùng cho báo cáo trong [results/bench/](results/bench/). Theo [.gitignore](.gitignore), `tools/`, `requirements.txt` và các thư mục kết quả khác chỉ có trong bản làm việc cục bộ.
